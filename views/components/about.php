@@ -35,56 +35,59 @@
                 <strong>Sobre Tecnologias</strong>
             </h4>
 
-            <p class="fs-5" style="text-align: justify;">
+            <p class="fs-5 mb-0" style="text-align: justify;">
                 Tenho um certo domínio:
             </p>
-            <div class="column">
-                <ul class="tech-list-1">
-                    <!-- Tecnologias da primeira coluna -->
-                </ul>
-            </div>
+            <ul class="tech-list-1 d-flex flex-wrap">
+                <!-- Tecnologias da primeira lista -->
+            </ul>
 
-            <p class="fs-5" style="text-align: justify;">
+            <p class="fs-5 mb-0" style="text-align: justify;">
                 Já utilizei, mas não me aprofundei nos estudos:
             </p>
-            <div class="column">
-                <ul class="tech-list-2">
-                    <!-- Tecnologias da segunda coluna -->
-                </ul>
-            </div>
+            <ul class="tech-list-2 d-flex flex-wrap">
+                <!-- Tecnologias da segunda lista -->
+            </ul>
 
-            <p class="fs-5" style="text-align: justify;">
+            <p class="fs-5 mb-0" style="text-align: justify;">
                 Pretendo estudar futuramente:
             </p>
-            <div class="column">
-                <ul class="tech-list-3">
-                    <!-- Tecnologias da terceira coluna -->
-                </ul>
-            </div>
+            <ul class="tech-list-3 d-flex flex-wrap">
+                <!-- Tecnologias da terceira lista -->
+            </ul>
         </div>
     </div>
 </div>
 
 <script>
     $(document).ready(function() {
-        // Função para dividir as tecnologias em três colunas
         function divideTecnologias() {
-            var techLists = [
-                /* Primeira lista */
-                ["HTML", "CSS", "JavaScript", "Jquery", "Ajax", "SQL", "PHP", "Linguagem C", "Bootstrap", "Laravel", "GitHub", "Bitbucket", "Figma", "clickup", "BR Modelo", "DataTables", "Dompdf", "LavaCharts", "API do Pagarme", "API do PagSeguro"],
-                /* Segunda lista */
-                ["TypeScript", "Python", "C#", "Java", "Ionic", "Angular", "Trello", "Jira"],
-                /* Terceira lista */
-                ["Docker", "React", "Tailwind", "Node.Js", "Flutter"]
+            let techList_1 = [
+                "HTML", "CSS", "JavaScript", "Jquery", "Ajax", "SQL", "PHP", "Linguagem C", "Bootstrap", "Laravel", "GitHub", "Bitbucket", "Figma", "clickup", "BR Modelo", "DataTables", "Dompdf", "LavaCharts", "API do Pagarme", "API do PagSeguro",
             ];
 
-            for (var i = 0; i < techLists.length; i++) {
-                var columnNumber = i + 1;
-                var columnSelector = ".tech-list-" + columnNumber;
+            let techList_2 = [
+                "TypeScript", "Python", "C#", "Java", "Ionic", "Angular", "Trello", "Jira",
+            ];
 
-                for (var j = 0; j < techLists[i].length; j++) {
-                    $(columnSelector).append("<li>" + techLists[i][j] + "</li>");
-                }
+            let techList_3 = [
+                "Docker", "React", "Tailwind", "Node.Js", "Flutter",
+            ];
+
+            divideListaEmColunas(techList_1, ".tech-list-1");
+            divideListaEmColunas(techList_2, ".tech-list-2");
+            divideListaEmColunas(techList_3, ".tech-list-3");
+        }
+
+        function divideListaEmColunas(lista, classeLista) {
+            let columnCount = 3;
+            let columnSize = Math.ceil(lista.length / columnCount);
+
+            // Adicione os itens às listas correspondentes
+            for (let i = 0; i < columnCount; i++) {
+                let columnItems = lista.slice(i * columnSize, (i + 1) * columnSize);
+                let columnHtml = columnItems.map(item => `<li>${item}</li>`).join("");
+                $(classeLista).append(`<div class="col">${columnHtml}</div>`);
             }
         }
 

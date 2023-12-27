@@ -70,6 +70,12 @@ body,
 
 
 
+#about .box ul {
+    list-style-type: circle;
+}
+
+
+
 #projects .accordion-button,
 #projects .accordion-item {
     background-color: transparent;
@@ -104,15 +110,4 @@ body,
     color: #b93632;
     border-left: 5px solid #593632;
     padding-left: 4px;
-}
-
-
-
-#about .box ul {
-    list-style-type: circle;
-}
-
-#about .column {
-    flex: 0 0 calc(33.33% - 20px);
-    max-width: calc(33.33% - 20px);
 }
