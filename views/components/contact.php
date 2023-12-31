@@ -1,5 +1,5 @@
 <div class="d-flex flex-wrap justify-content-center">
-    <h1 class="w-100 text-center fs-3 py-3">Contato</h1>
+    <h1 class="w-100 text-end fs-5 py-4">Contato</h1>
     <div class="row g-4 align-items-stretch">
         <div class="box bg-box border border-1 border-light rounded shadow-lg p-3">
             <h4 class="fw-bold">Links</h4>
