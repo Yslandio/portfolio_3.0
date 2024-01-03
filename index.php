@@ -2,4 +2,4 @@
 
 include('env.php');
 
-include(ROOT_DIR . '/views/portfolio.php');
+header("Location: " . $_SESSION['BASE_URL'] . "/routes/web.php");

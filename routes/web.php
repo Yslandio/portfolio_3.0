@@ -1,13 +1,17 @@
 <?php
 
-use App\Controllers\ProjectController;
-include(ROOT_DIR . '/App/Controllers/ProjectController.php');
+session_start();
 
-use routes\router;
-$router = new router\Router();
+$route = $_GET['route'] ?? $_POST['route'];
 
-// Exemplo de rota para listar tarefas
-$router->addRoute('listProjects', 'ProjectController/getProjects');
+switch ($route) {
+    case 'listProjects':
+        include($_SESSION['ROOT_DIR'] . '/App/Controllers/ProjectController.php');
+        $projectController = new ProjectController();
+        echo json_encode($projectController->getProjects());
+        break;
+    default:
+        header('Location: '. $_SESSION['BASE_URL'] . '/views/portfolio.php');
+}
 
-// Exemplo de rota para adicionar tarefa
-// $router->addRoute('addProject', 'ProjectController/addProject');
+return;

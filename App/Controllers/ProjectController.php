@@ -1,20 +1,14 @@
 <?php
 
 use App\Models\Project;
+include($_SESSION['ROOT_DIR'] . '/App/Models/Project.php');
 
 class ProjectController
 {
-    public function index()
-    {
-        $projects = Project::get();
-
-        return json_encode(['projects' => $projects]);
-    }
-
     public function getProjects()
     {
         $projects = Project::get();
-
-        return json_encode(['projects' => $projects]);
+        
+        return $projects;
     }
 }
