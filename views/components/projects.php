@@ -63,7 +63,6 @@
                         </div>
                     `;
 
-                    // Adicione o projeto ao contêiner
                     $('#projectContainer').append(projectHtml);
                 });
             },
